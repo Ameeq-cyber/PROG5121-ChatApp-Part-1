@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
  */
 public class LoginTest {
     
-    private final String validUsername = "tash";
+    private final String validUsername = "t_ash";
     private final String invalidUsername = "natash!?";
     private final String validPassword = "AME&1234@PRI07";
     private final String invalidPassword = "pokadotmay";
