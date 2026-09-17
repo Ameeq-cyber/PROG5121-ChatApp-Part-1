@@ -14,12 +14,12 @@ import org.junit.jupiter.api.Test;
  */
 public class LoginTest {
     
-    private final String validUsername = "t_ash";
-    private final String invalidUsername = "natash!?";
-    private final String validPassword = "AME&1234@PRI07";
-    private final String invalidPassword = "pokadotmay";
-    private final String validCellPhone = "+27619767492";
-    private final String invalidCellPhone = "0847276";
+    private final String validUsername = "tas_2";
+    private final String invalidUsername = "tash!!!!!!!";
+    private final String validPassword = "Tp&&jul@may5!";
+    private final String invalidPassword = "password";
+    private final String validCellPhone = "+27839686798";
+    private final String invalidCellPhone = "08755664";
 
     @Test
     public void testUsernameCorrectlyFormatted() {
