@@ -4,6 +4,9 @@
  */
 package com.mycompany.chatapppart1;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  *
  * @author Student
@@ -57,10 +60,16 @@ public class Login {
      * The task's supplied valid test data uses exactly ten digits after +27.
      * @param cellPhoneNumber
      * @return 
+     *Regex syntax researched from Oracle Java Tutorials
+     https://docs.oracle.com/javase/tutorial/essential/regex/
      */
     public boolean checkCellPhoneNumber(String cellPhoneNumber) {
-        return cellPhoneNumber != null
-                && cellPhoneNumber.matches("^\\+27[0-9]{1,10}$");
+        
+    Pattern pattern = Pattern.compile("^\\+27\\d{9}$");
+    Matcher matcher;
+        matcher = pattern.matcher(cellPhoneNumber);
+    return matcher.matches();
+
     }
     
      public String registerUser(String username, String password, String cellPhoneNumber) {
@@ -91,7 +100,7 @@ public class Login {
 
     public String returnLoginStatus(boolean loginSuccessful) {
         if (loginSuccessful) {
-            return "Welcome " + firstName + " " + lastName + ", it is great to see you again.";
+            return "Welcome " + firstName + "," + lastName + "it is great to see you again.";
         }
         return "Username or password incorrect, please try again.";
     }
