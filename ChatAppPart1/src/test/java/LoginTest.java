@@ -92,4 +92,47 @@ public class LoginTest {
         assertEquals("Username or password incorrect, please try again.",
                 login.returnLoginStatus(false));
     }
+    
+    @Test
+    public void testRegisterUserUsernameCaptured() {
+        Login login = new Login("Natasha", "Prins");
+        assertEquals("Username successfully captured.", 
+            login.registerUser(validUsername, validPassword, validCellPhone));
+    }
+
+    @Test
+    public void testRegisterUserCellPhoneAdded() {
+        Login login = new Login("Natasha", "Prins");
+        assertEquals("Cell phone number successfully added.", 
+            login.registerUser(validUsername, validPassword, validCellPhone));
+    }
+
+    @Test
+    public void testRegisterUserPasswordCaptured() {
+        Login login = new Login("Natasha", "Prins");
+        assertEquals("Password successfully captured.", 
+            login.registerUser(validUsername, validPassword, validCellPhone));
+    }
+    
+    @Test
+    public void testRegisterUserInvalidUsername() {
+        Login login = new Login("Natasha", "Prins");
+        assertEquals("Username is not correctly formatted; please ensure that your username contains an underscore and is no more than 5 characters in length.", 
+            login.registerUser(invalidUsername, validPassword, validCellPhone));
+    }
+
+    @Test
+    public void testRegisterUserInvalidPassword() {
+        Login login = new Login("Natasha", "Prins");
+        assertEquals("Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number and a special character.", 
+            login.registerUser(validUsername, invalidPassword, validCellPhone));
+    }
+
+    @Test
+    public void testRegisterUserInvalidCellPhone() {
+        Login login = new Login("Natasha", "Prins");
+        assertEquals("Cell number is incorrectly formatted or does not contain an international code; please correct the code.", 
+            login.registerUser(validUsername, validPassword, invalidCellPhone));
+    }
+    
 }
