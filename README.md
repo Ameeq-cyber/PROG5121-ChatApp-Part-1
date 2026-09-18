@@ -43,6 +43,6 @@ JUnit tests are included in LoginTest.java to test username validation, password
   Available at: https://docs.oracle.com/javase/tutorial/essential/regex/
   [Accessed: 17 September 2026].
 
-## Video Presentation
-[]
+## Video Presentation link
+[https://youtu.be/GOaqUZsNpVA]
 
