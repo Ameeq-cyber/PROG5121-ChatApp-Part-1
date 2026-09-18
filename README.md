@@ -1,4 +1,9 @@
 # PROG5121-ChatApp Part 1
+# Module: PROG5121 Programming 1A
+
+## Student Details
+Ameeq Tasmia Prins
+ST10510171
 
 ## Project Overview
 
@@ -33,10 +38,10 @@ The project contains the following main classes:
 
 JUnit tests are included in LoginTest.java to test username validation, password complexity, cell phone validation, registration and login functionality.
 
-## Regular Expression Reference
-
-The regular expression used for South African cell phone validation was researched from:
-[https://docs.oracle.com/javase/tutorial/essential/regex/]
+## References
+- Oracle, 2025. Essential Java Classes - Lesson: Regular Expressions. [Online].
+  Available at: https://docs.oracle.com/javase/tutorial/essential/regex/
+  [Accessed: 17 September 2026].
 
 ## Video Presentation
 []
