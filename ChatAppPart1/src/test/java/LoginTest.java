@@ -94,25 +94,25 @@ public class LoginTest {
     }
     
     @Test
-    public void testRegisterUserUsernameCaptured() {
-        Login login = new Login("Kyle", "Smith");
-        assertEquals("Username successfully captured.", 
-            login.registerUser(validUsername, validPassword, validCellPhone));
-    }
+public void testRegisterUserUsernameCaptured() {
+    Login login = new Login("Kyle", "Smith");
+    String result = login.registerUser(validUsername, validPassword, validCellPhone);
+    assertEquals("Registration successful.", result);
+}
 
-    @Test
-    public void testRegisterUserCellPhoneAdded() {
-        Login login = new Login("Kyle", "Smith");
-        assertEquals("Cell phone number successfully added.", 
-            login.registerUser(validUsername, validPassword, validCellPhone));
-    }
+@Test
+public void testRegisterUserPasswordCaptured() {
+    Login login = new Login("Kyle", "Smith");
+    String result = login.registerUser(validUsername, validPassword, validCellPhone);
+    assertEquals("Registration successful.", result);
+}
 
-    @Test
-    public void testRegisterUserPasswordCaptured() {
-        Login login = new Login("Kyle", "Smith");
-        assertEquals("Password successfully captured.", 
-            login.registerUser(validUsername, validPassword, validCellPhone));
-    }
+@Test
+public void testRegisterUserCellPhoneAdded() {
+    Login login = new Login("Kyle", "Smith");
+    String result = login.registerUser(validUsername, validPassword, validCellPhone);
+    assertEquals("Registration successful.", result);
+}
     
     @Test
     public void testRegisterUserInvalidUsername() {
