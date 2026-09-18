@@ -60,7 +60,11 @@ public class Login {
      * @param cellPhoneNumber
      * @return 
      *Regex syntax researched from Oracle Java Tutorials
-     https://docs.oracle.com/javase/tutorial/essential/regex/
+     * // Regex pattern adapted from:
+      // Author/Website: Oracle
+      // Page/Article: Lesson: Regular Expressions - The Java™ Tutorials
+      // URL: https://docs.oracle.com/javase/tutorial/essential/regex/
+      // Accessed: 18 September 2026
      */
     public boolean checkCellPhoneNumber(String cellPhoneNumber) {
         
