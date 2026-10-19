@@ -4,6 +4,7 @@
  */
 package com.mycompany.chatapppart1;
 
+
 import java.util.Scanner;
 
 
@@ -85,15 +86,17 @@ public class Main {
                                     }
 
                                     boolean validText = false;
+                                    String messageText = "";
                                     while (!validText) {
                                         System.out.print("Enter your message (max 250 characters): ");
-                                        String messageText = scanner.nextLine();
+                                        messageText = scanner.nextLine();
                                         String textResult = msg.checkMessageLength(messageText);
                                         System.out.println(textResult);
                                         if (textResult.contains("ready to send")) {
                                             validText = true;
                                         }
                                     }
+                                    
 
                                     String hash = msg.createMessageHash(msg.getMessageText());
                                     System.out.println("Generated Message Hash: " + hash);
@@ -103,9 +106,13 @@ public class Main {
                                     System.out.println("2) Disregard Message");
                                     System.out.println("3) Store Message");
                                     System.out.print("Enter choice (1-3): ");
-                                    int actionChoice = scanner.nextInt();
-                                    scanner.nextLine();
-
+                                    String actionInput = scanner.nextLine().trim();
+                                    int actionChoice = 1;
+                                    try {
+                                        actionChoice = Integer.parseInt(actionInput);
+                                    } catch (NumberFormatException e) {
+                                        actionChoice = 1; // Default safely if anything goes wrong
+                                    }
                                     String actionResult = msg.processChoice(actionChoice);
                                     System.out.println(actionResult);
 
@@ -136,5 +143,5 @@ public class Main {
             }
         }
     }
-        
 }
+        

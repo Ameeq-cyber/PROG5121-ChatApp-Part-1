@@ -119,5 +119,9 @@ public class Login {
     public String getCellPhoneNumber() {
         return cellPhoneNumber;
     }
+
+    String registerUser(String username, String password, String phone, String firstName, String lastName) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
     

@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public final class Message {
     
-    private String messageID;
+   private String messageID;
     private int messageNumber;
     private String recipient;
     private String messageText;
@@ -70,7 +70,6 @@ public final class Message {
     }
 
     /**
-     * Validates message text length (maximum 250 characters).
      * @param text
      * @return 
      */
@@ -163,6 +162,8 @@ public final class Message {
         }
     }
 
+   
+    
     // Getters
     public String getMessageID() { return messageID; }
     public String getRecipient() { return recipient; }
@@ -170,5 +171,10 @@ public final class Message {
     public String getMessageHash() { return messageHash; }
     public String getStatus() { return status; }
 }
+
+
+
+    
+
     
 
