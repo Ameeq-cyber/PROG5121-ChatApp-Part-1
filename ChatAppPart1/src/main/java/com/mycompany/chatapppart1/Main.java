@@ -4,6 +4,7 @@
  */
 package com.mycompany.chatapppart1;
 
+
 import java.util.Scanner;
 
 
@@ -42,8 +43,105 @@ public class Main {
                 
                 boolean loggedIn = userLogin.loginUser(loginUsername, loginPassword);
                 System.out.println(userLogin.returnLoginStatus(loggedIn));
+                
+                if (loggedIn) {
+                    boolean running = true;
+                    
+                    while (running) {
+                        System.out.println("\nWelcome to QuickChat.");
+                        System.out.println("1) Send Messages");
+                        System.out.println("2) Show recently sent messages");
+                        System.out.println("3) Quit");
+                        System.out.print("Choose an option (1-3): ");
+                        
+                        int choice = -1;
+                        if (scanner.hasNextInt()) {
+                            choice = scanner.nextInt();
+                            scanner.nextLine(); // Consume newline
+                        } else {
+                            scanner.nextLine();
+                            System.out.println("Invalid input. Please enter a number between 1 and 3.");
+                            continue;
+                        }
+
+                        switch (choice) {
+                            case 1 -> {
+                                System.out.print("How many messages would you like to enter? ");
+                                int messageAllowance = scanner.nextInt();
+                                scanner.nextLine();
+
+                                for (int i = 0; i < messageAllowance; i++) {
+                                    System.out.println("\n--- Entering Message " + (i + 1) + " of " + messageAllowance + " ---");
+                                    Message msg = new Message(i);
+
+                                    boolean validCell = false;
+                                    while (!validCell) {
+                                        System.out.print("Enter recipient cellphone number (e.g., +27...): ");
+                                        String recipient = scanner.nextLine();
+                                        String cellResult = msg.checkRecipientCell(recipient);
+                                        System.out.println(cellResult);
+                                        if (cellResult.contains("successfully captured")) {
+                                            validCell = true;
+                                        }
+                                    }
+
+                                    boolean validText = false;
+                                    String messageText = "";
+                                    while (!validText) {
+                                        System.out.print("Enter your message (max 250 characters): ");
+                                        messageText = scanner.nextLine();
+                                        String textResult = msg.checkMessageLength(messageText);
+                                        System.out.println(textResult);
+                                        if (textResult.contains("ready to send")) {
+                                            validText = true;
+                                        }
+                                    }
+                                    
+
+                                    String hash = msg.createMessageHash(msg.getMessageText());
+                                    System.out.println("Generated Message Hash: " + hash);
+
+                                    System.out.println("\nSelect an action:");
+                                    System.out.println("1) Send Message");
+                                    System.out.println("2) Disregard Message");
+                                    System.out.println("3) Store Message");
+                                    System.out.print("Enter choice (1-3): ");
+                                    String actionInput = scanner.nextLine().trim();
+                                    int actionChoice = 1;
+                                    try {
+                                        actionChoice = Integer.parseInt(actionInput);
+                                    } catch (NumberFormatException e) {
+                                        actionChoice = 1; // Default safely if anything goes wrong
+                                    }
+                                    String actionResult = msg.processChoice(actionChoice);
+                                    System.out.println(actionResult);
+
+                                    if (actionChoice == 1) {
+                                        System.out.println("\n========================================");
+                                        System.out.println("MESSAGE DETAILS:");
+                                        System.out.println("Message ID: " + msg.getMessageID());
+                                        System.out.println("Message Hash: " + msg.getMessageHash());
+                                        System.out.println("Recipient: " + msg.getRecipient());
+                                        System.out.println("Message: " + msg.getMessageText());
+                                        System.out.println("========================================");
+                                    }
+                                }
+                            }
+
+                            case 2 -> System.out.println("\nComing Soon.");
+
+                            case 3 -> {
+                                System.out.println("\nThank you for using QuickChat. Goodbye!");
+                                running = false;
+                            }
+
+                            default -> System.out.println("\nInvalid choice. Please select 1, 2, or 3.");
+                        }
+                    }
+                }
+                
             }
         }
     }
-        
 }
+        
