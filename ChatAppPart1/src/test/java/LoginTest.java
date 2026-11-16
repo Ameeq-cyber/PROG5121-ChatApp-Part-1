@@ -61,14 +61,14 @@ public class LoginTest {
     public void testLoginSuccessful(String regLast) {
         Login login = new Login("Kyle", "Smith");
         assertEquals("Registration successful.",
-                login.registerUser(validUsername, validPassword, validCellPhone));
+                login.registerUser(validUsername, validPassword, validCellPhone, regLast));
         assertTrue(login.loginUser(validUsername, validPassword));
     }
 
     @Test
     public void testLoginFailed(String regLast) {
         Login login = new Login("Kyle", "Smith");
-        login.registerUser(validUsername, validPassword, validCellPhone);
+        login.registerUser(validUsername, validPassword, validCellPhone, regLast);
         assertFalse(login.loginUser(validUsername, invalidPassword));
     }
 
@@ -81,7 +81,7 @@ public class LoginTest {
      @Test
     public void testLoginStatusSuccess(String regLast) {
         Login login = new Login("Kyle", "Smith");
-        login.registerUser(validUsername, validPassword, validCellPhone);
+        login.registerUser(validUsername, validPassword, validCellPhone, regLast);
         assertEquals("Welcome Kyle Smith, it is great to see you again.",
                 login.returnLoginStatus(true));
     }
@@ -96,21 +96,21 @@ public class LoginTest {
     @Test
 public void testRegisterUserUsernameCaptured(String regLast) {
     Login login = new Login("Kyle", "Smith");
-    String result = login.registerUser(validUsername, validPassword, validCellPhone);
+    String result = login.registerUser(validUsername, validPassword, validCellPhone, regLast);
     assertEquals("Registration successful.", result);
 }
 
 @Test
 public void testRegisterUserPasswordCaptured(String regLast) {
     Login login = new Login("Kyle", "Smith");
-    String result = login.registerUser(validUsername, validPassword, validCellPhone);
+    String result = login.registerUser(validUsername, validPassword, validCellPhone, regLast);
     assertEquals("Registration successful.", result);
 }
 
 @Test
 public void testRegisterUserCellPhoneAdded(String regLast) {
     Login login = new Login("Kyle", "Smith");
-    String result = login.registerUser(validUsername, validPassword, validCellPhone);
+    String result = login.registerUser(validUsername, validPassword, validCellPhone, regLast);
     assertEquals("Registration successful.", result);
 }
     
@@ -118,21 +118,21 @@ public void testRegisterUserCellPhoneAdded(String regLast) {
     public void testRegisterUserInvalidUsername(String regLast) {
         Login login = new Login("Kyle", "Smith");
         assertEquals("Username is not correctly formatted; please ensure that your username contains an underscore and is no more than 5 characters in length.", 
-            login.registerUser(invalidUsername, validPassword, validCellPhone));
+            login.registerUser(invalidUsername, validPassword, validCellPhone, regLast));
     }
 
     @Test
     public void testRegisterUserInvalidPassword(String regLast) {
         Login login = new Login("Kyle", "Smith");
         assertEquals("Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number and a special character.", 
-            login.registerUser(validUsername, invalidPassword, validCellPhone));
+            login.registerUser(validUsername, invalidPassword, validCellPhone, regLast));
     }
 
     @Test
     public void testRegisterUserInvalidCellPhone(String regLast) {
         Login login = new Login("Kyle", "Smith");
         assertEquals("Cell number is incorrectly formatted or does not contain an international code; please correct the code.", 
-            login.registerUser(validUsername, validPassword, invalidCellPhone));
+            login.registerUser(validUsername, validPassword, invalidCellPhone, regLast));
     }
     
 }
