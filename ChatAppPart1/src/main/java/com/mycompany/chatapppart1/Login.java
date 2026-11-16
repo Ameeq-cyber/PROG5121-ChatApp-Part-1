@@ -75,7 +75,7 @@ public class Login {
 
     }
     
-     public String registerUser(String username, String password, String cellPhoneNumber) {
+     public String registerUser(String username, String password, String cellPhoneNumber, String regLast) {
         if (!checkUserName(username)) {
             return "Username is not correctly formatted; please ensure that your username contains an underscore and is no more than 5 characters in length.";
         }
