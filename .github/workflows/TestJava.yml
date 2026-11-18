@@ -17,7 +17,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: '21' # Change to '25' only if your pom.xml explicitly requires Java 25
+          java-version: '25'
           distribution: 'temurin'
           cache: 'maven'
           cache-dependency-path: 'ChatAppPart1/pom.xml'
