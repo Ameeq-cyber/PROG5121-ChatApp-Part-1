@@ -135,7 +135,7 @@ public class MessageManagerTest {
                 "Remaining stored message (Message 5) must persist after JSON reload");
     }
 public static void setScannerInput(String data) {
-        Scanner Scanner = new Scanner(new java.io.ByteArrayInputStream(data.getBytes()));
+        var Scanner = new Scanner(new java.io.ByteArrayInputStream(data.getBytes()));
 }
 
     private void assertTrue(boolean contains, String remaining_stored_message_Message_5_must_p) {
